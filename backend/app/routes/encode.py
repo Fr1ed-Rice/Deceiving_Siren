@@ -2,6 +2,7 @@
 Encode routes — LSB and Spectrogram encoding endpoints.
 """
 
+import io
 import os
 from flask import Blueprint, request, send_file, jsonify
 
@@ -74,8 +75,16 @@ def encode_lsb():
 
         format_info = convert_from_wav(stego_wav, final_output, output_format)
 
+        # Read into memory before cleanup so send_file doesn't race with deletion
+        buf = io.BytesIO()
+        with open(final_output, "rb") as f:
+            buf.write(f.read())
+        buf.seek(0)
+
+        cleanup_temp_dir(temp_dir)
+
         return send_file(
-            final_output,
+            buf,
             as_attachment=True,
             download_name=output_name,
             mimetype=_get_audio_mimetype(output_format),
@@ -149,8 +158,15 @@ def encode_spectrogram():
         final_output = os.path.join(temp_dir, output_name)
         convert_from_wav(stego_wav, final_output, output_format)
 
+        buf = io.BytesIO()
+        with open(final_output, "rb") as f:
+            buf.write(f.read())
+        buf.seek(0)
+
+        cleanup_temp_dir(temp_dir)
+
         return send_file(
-            final_output,
+            buf,
             as_attachment=True,
             download_name=output_name,
             mimetype=_get_audio_mimetype(output_format),

@@ -2,6 +2,7 @@
 Decode routes — LSB and Spectrogram decoding endpoints.
 """
 
+import io
 import os
 from flask import Blueprint, request, send_file, jsonify
 
@@ -50,8 +51,15 @@ def decode_lsb():
             output_dir=output_dir,
         )
 
+        buf = io.BytesIO()
+        with open(result["output_path"], "rb") as f:
+            buf.write(f.read())
+        buf.seek(0)
+
+        cleanup_temp_dir(temp_dir)
+
         return send_file(
-            result["output_path"],
+            buf,
             as_attachment=True,
             download_name=result["filename"],
         )
@@ -98,8 +106,15 @@ def decode_spectrogram():
             output_image_path=output_image,
         )
 
+        buf = io.BytesIO()
+        with open(output_image, "rb") as f:
+            buf.write(f.read())
+        buf.seek(0)
+
+        cleanup_temp_dir(temp_dir)
+
         return send_file(
-            output_image,
+            buf,
             as_attachment=True,
             download_name="spectrogram.png",
             mimetype="image/png",

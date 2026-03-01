@@ -2,6 +2,7 @@
 Video steganography routes — encode/decode via video's audio track.
 """
 
+import io
 import os
 from flask import Blueprint, request, send_file, jsonify
 
@@ -95,8 +96,15 @@ def encode_video():
             ".webm": "video/webm",
         }.get(ext, "video/mp4")
 
+        buf = io.BytesIO()
+        with open(output_video, "rb") as f:
+            buf.write(f.read())
+        buf.seek(0)
+
+        cleanup_temp_dir(temp_dir)
+
         return send_file(
-            output_video,
+            buf,
             as_attachment=True,
             download_name=output_name,
             mimetype=mimetype,
@@ -147,8 +155,13 @@ def decode_video():
                 audio_path=extracted_audio,
                 output_image_path=output_image,
             )
+            buf = io.BytesIO()
+            with open(output_image, "rb") as f:
+                buf.write(f.read())
+            buf.seek(0)
+            cleanup_temp_dir(temp_dir)
             return send_file(
-                output_image,
+                buf,
                 as_attachment=True,
                 download_name="video_spectrogram.png",
                 mimetype="image/png",
@@ -163,8 +176,14 @@ def decode_video():
                 output_dir=output_dir,
             )
 
+            buf = io.BytesIO()
+            with open(result["output_path"], "rb") as f:
+                buf.write(f.read())
+            buf.seek(0)
+            cleanup_temp_dir(temp_dir)
+
             return send_file(
-                result["output_path"],
+                buf,
                 as_attachment=True,
                 download_name=result["filename"],
             )
