@@ -1,0 +1,107 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--border-glow);
+  box-shadow: var(--glow-cyan);
+  transform: translateY(-2px);
+}
+
+/* Scanline overlay on card */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 240, 255, 0.01) 2px,
+    rgba(0, 240, 255, 0.01) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Corner decoration */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-top: 2px solid var(--neon-cyan);
+  border-right: 2px solid var(--neon-cyan);
+  border-radius: 0 var(--radius-lg) 0 0;
+  opacity: 0.3;
+  transition: opacity var(--transition-base);
+  z-index: 2;
+}
+
+.card:hover::after {
+  opacity: 0.8;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 3;
+}
+
+.cardTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cardIcon {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-md);
+  display: block;
+}
+
+/* Variant: glowing border animation */
+.cardGlow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Variant: magenta accent */
+.cardMagenta {
+  /* variant marker – hover/pseudo styles below */
+  display: inherit;
+}
+.cardMagenta:hover {
+  border-color: rgba(255, 0, 170, 0.35);
+  box-shadow: var(--glow-magenta);
+}
+.cardMagenta::after {
+  border-color: var(--neon-magenta);
+}
+
+/* Variant: green accent */
+.cardGreen {
+  /* variant marker – hover/pseudo styles below */
+  display: inherit;
+}
+.cardGreen:hover {
+  border-color: rgba(57, 255, 20, 0.35);
+  box-shadow: var(--glow-green);
+}
+.cardGreen::after {
+  border-color: var(--neon-green);
+}

@@ -1,0 +1,209 @@
+.page {
+  padding-top: calc(var(--header-height) + var(--space-2xl));
+  padding-bottom: var(--space-2xl);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+  animation: fade-in 0.5s ease-out;
+}
+
+.header {
+  margin-bottom: var(--space-2xl);
+}
+
+.breadcrumb {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-sm);
+}
+
+.breadcrumb a {
+  color: var(--text-muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--neon-cyan);
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.titleIcon {
+  margin-right: var(--space-sm);
+}
+
+.subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+}
+
+/* Form layout */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.formLabel {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Progress bar */
+.progressWrap {
+  width: 100%;
+  height: 4px;
+  background: var(--bg-input);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: var(--space-sm);
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+  border-radius: 2px;
+  transition: width var(--transition-fast);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+/* Result area */
+.result {
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid rgba(57, 255, 20, 0.3);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.resultTitle {
+  font-size: var(--font-size-base);
+  color: var(--neon-green);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.resultActions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* Error area */
+.errorBox {
+  padding: var(--space-lg);
+  background: rgba(255, 51, 51, 0.06);
+  border: 1px solid rgba(255, 51, 51, 0.3);
+  border-radius: var(--radius-md);
+  color: var(--neon-red);
+  font-size: var(--font-size-sm);
+}
+
+/* Method toggle */
+.methodToggle {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.methodBtn {
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-fast);
+}
+
+.methodBtn:hover {
+  border-color: var(--border-glow);
+  color: var(--text-primary);
+}
+
+.methodBtnActive {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  background: rgba(0, 240, 255, 0.06);
+}
+
+/* Intensity slider */
+.sliderGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.sliderLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--bg-card);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--neon-cyan);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+.slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--neon-cyan);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}

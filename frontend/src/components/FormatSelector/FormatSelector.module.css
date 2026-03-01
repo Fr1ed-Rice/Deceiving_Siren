@@ -1,0 +1,81 @@
+.selectorGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.options {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.option:hover {
+  border-color: var(--border-glow);
+  color: var(--text-primary);
+}
+
+.optionSelected {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  background: rgba(0, 240, 255, 0.06);
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.15);
+}
+
+.optionLossy {
+  border-color: rgba(255, 140, 0, 0.4);
+  color: var(--neon-orange);
+}
+
+.optionLossy.optionSelected {
+  border-color: var(--neon-orange);
+  background: rgba(255, 140, 0, 0.08);
+  box-shadow: 0 0 6px rgba(255, 140, 0, 0.2);
+}
+
+.lossyTag {
+  font-size: var(--font-size-xs);
+  color: var(--neon-orange);
+  opacity: 0.8;
+}
+
+.losslessTag {
+  font-size: var(--font-size-xs);
+  color: var(--neon-green);
+  opacity: 0.8;
+}
+
+.warning {
+  margin-top: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(255, 140, 0, 0.06);
+  border: 1px solid rgba(255, 140, 0, 0.25);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--neon-orange);
+  line-height: 1.5;
+}

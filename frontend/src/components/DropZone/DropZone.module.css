@@ -1,0 +1,129 @@
+.dropzone {
+  border: 2px dashed var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background: var(--bg-input);
+  position: relative;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.dropzone:hover {
+  border-color: var(--border-glow);
+  background: rgba(0, 240, 255, 0.02);
+}
+
+.dropzoneActive {
+  border-color: var(--neon-cyan);
+  background: rgba(0, 240, 255, 0.05);
+  box-shadow: var(--glow-cyan);
+}
+
+.dropzoneReject {
+  border-color: var(--neon-red);
+  background: rgba(255, 51, 51, 0.05);
+  box-shadow: 0 0 8px rgba(255, 51, 51, 0.3);
+}
+
+.icon {
+  font-size: 2.5rem;
+  opacity: 0.6;
+  transition: opacity var(--transition-base);
+}
+
+.dropzone:hover .icon,
+.dropzoneActive .icon {
+  opacity: 1;
+}
+
+.title {
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+.browse {
+  color: var(--neon-cyan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sizeLimit {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  margin-top: var(--space-xs);
+}
+
+/* File preview */
+.filePreview {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  width: 100%;
+  max-width: 400px;
+}
+
+.fileInfo {
+  flex: 1;
+  text-align: left;
+  min-width: 0;
+}
+
+.fileName {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fileSize {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.fileIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.removeBtn {
+  background: none;
+  border: 1px solid rgba(255, 51, 51, 0.3);
+  color: var(--neon-red);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.removeBtn:hover {
+  background: rgba(255, 51, 51, 0.1);
+  border-color: var(--neon-red);
+}
+
+.error {
+  color: var(--neon-red);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-sm);
+}
