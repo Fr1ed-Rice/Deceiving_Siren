@@ -42,8 +42,8 @@
 .optionSelected {
   border-color: var(--neon-cyan);
   color: var(--neon-cyan);
-  background: rgba(0, 240, 255, 0.06);
-  box-shadow: 0 0 6px rgba(0, 240, 255, 0.15);
+  background: rgba(255, 34, 68, 0.06);
+  box-shadow: 0 0 6px rgba(255, 34, 68, 0.15);
 }
 
 .optionLossy {

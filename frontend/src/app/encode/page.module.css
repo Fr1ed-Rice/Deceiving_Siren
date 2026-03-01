@@ -92,7 +92,7 @@
   background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
   border-radius: 2px;
   transition: width var(--transition-fast);
-  box-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 8px rgba(255, 34, 68, 0.4);
 }
 
 /* Result area */
@@ -157,7 +157,7 @@
 .methodBtnActive {
   border-color: var(--neon-cyan);
   color: var(--neon-cyan);
-  background: rgba(0, 240, 255, 0.06);
+  background: rgba(255, 34, 68, 0.06);
 }
 
 /* Intensity slider */
@@ -195,7 +195,7 @@
   background: var(--neon-cyan);
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+  box-shadow: 0 0 8px rgba(255, 34, 68, 0.5);
 }
 
 .slider::-moz-range-thumb {
@@ -205,5 +205,5 @@
   border-radius: 50%;
   cursor: pointer;
   border: none;
-  box-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+  box-shadow: 0 0 8px rgba(255, 34, 68, 0.5);
 }

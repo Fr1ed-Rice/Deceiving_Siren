@@ -43,8 +43,8 @@
 }
 
 .playBtn:hover {
-  background: rgba(0, 240, 255, 0.08);
-  box-shadow: 0 0 6px rgba(0, 240, 255, 0.2);
+  background: rgba(255, 34, 68, 0.08);
+  box-shadow: 0 0 6px rgba(255, 34, 68, 0.2);
 }
 
 .time {

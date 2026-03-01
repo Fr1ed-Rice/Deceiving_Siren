@@ -30,7 +30,7 @@ function ParticleField() {
     <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
       <PointMaterial
         transparent
-        color="#00f0ff"
+        color="#ff2244"
         size={0.03}
         sizeAttenuation
         depthWrite={false}
@@ -63,7 +63,7 @@ function WaveGrid() {
     <mesh ref={ref} rotation={[-Math.PI / 3, 0, 0]} position={[0, -3, 0]}>
       <planeGeometry args={[30, 30, 60, 60]} />
       <meshBasicMaterial
-        color="#00f0ff"
+        color="#ff2244"
         wireframe
         transparent
         opacity={0.08}

@@ -40,9 +40,9 @@ export default function WaveformViewer({
 
     const ws = WaveSurfer.create({
       container: containerRef.current,
-      waveColor: "rgba(0, 240, 255, 0.4)",
-      progressColor: "#00f0ff",
-      cursorColor: "#ff00aa",
+      waveColor: "rgba(255, 34, 68, 0.4)",
+      progressColor: "#ff2244",
+      cursorColor: "#ff6600",
       cursorWidth: 2,
       barWidth: 2,
       barGap: 1,

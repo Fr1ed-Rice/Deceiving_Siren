@@ -17,12 +17,12 @@
 
 .dropzone:hover {
   border-color: var(--border-glow);
-  background: rgba(0, 240, 255, 0.02);
+  background: rgba(255, 34, 68, 0.02);
 }
 
 .dropzoneActive {
   border-color: var(--neon-cyan);
-  background: rgba(0, 240, 255, 0.05);
+  background: rgba(255, 34, 68, 0.05);
   box-shadow: var(--glow-cyan);
 }
 

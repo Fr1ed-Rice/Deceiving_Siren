@@ -28,8 +28,8 @@
     0deg,
     transparent,
     transparent 2px,
-    rgba(0, 240, 255, 0.01) 2px,
-    rgba(0, 240, 255, 0.01) 4px
+    rgba(255, 34, 68, 0.01) 2px,
+    rgba(255, 34, 68, 0.01) 4px
   );
   pointer-events: none;
   z-index: 1;
@@ -86,7 +86,7 @@
   display: inherit;
 }
 .cardMagenta:hover {
-  border-color: rgba(255, 0, 170, 0.35);
+  border-color: rgba(255, 102, 0, 0.35);
   box-shadow: var(--glow-magenta);
 }
 .cardMagenta::after {
