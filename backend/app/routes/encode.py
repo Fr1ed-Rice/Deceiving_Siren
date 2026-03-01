@@ -4,6 +4,7 @@ Encode routes — LSB and Spectrogram encoding endpoints.
 
 import io
 import os
+import traceback
 from flask import Blueprint, request, send_file, jsonify
 
 from ..services import lsb_stego, spectrogram_stego
@@ -93,6 +94,7 @@ def encode_lsb():
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
     except Exception as e:
+        traceback.print_exc()
         return jsonify({"error": f"Encoding failed: {str(e)}"}), 500
     finally:
         cleanup_temp_dir(temp_dir)
@@ -175,6 +177,7 @@ def encode_spectrogram():
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
     except Exception as e:
+        traceback.print_exc()
         return jsonify({"error": f"Spectrogram encoding failed: {str(e)}"}), 500
     finally:
         cleanup_temp_dir(temp_dir)

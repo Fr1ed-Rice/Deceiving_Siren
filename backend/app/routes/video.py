@@ -4,6 +4,7 @@ Video steganography routes — encode/decode via video's audio track.
 
 import io
 import os
+import traceback
 from flask import Blueprint, request, send_file, jsonify
 
 from ..services import lsb_stego, spectrogram_stego, video_audio
@@ -113,6 +114,7 @@ def encode_video():
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
     except Exception as e:
+        traceback.print_exc()
         return jsonify({"error": f"Video encoding failed: {str(e)}"}), 500
     finally:
         cleanup_temp_dir(temp_dir)
@@ -191,6 +193,7 @@ def decode_video():
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
     except Exception as e:
+        traceback.print_exc()
         return jsonify({"error": f"Video decoding failed: {str(e)}"}), 500
     finally:
         cleanup_temp_dir(temp_dir)

@@ -1,7 +1,16 @@
 """Audio format conversion utilities using pydub."""
 
 import os
+import shutil
 from pydub import AudioSegment
+
+# Ensure pydub can find ffmpeg/ffprobe even if PATH isn't inherited
+_ffmpeg = shutil.which("ffmpeg")
+_ffprobe = shutil.which("ffprobe")
+if _ffmpeg:
+    AudioSegment.converter = _ffmpeg
+if _ffprobe:
+    AudioSegment.ffprobe = _ffprobe
 
 
 LOSSY_WARNING = (

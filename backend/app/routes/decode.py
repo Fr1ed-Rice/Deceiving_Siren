@@ -4,6 +4,7 @@ Decode routes — LSB and Spectrogram decoding endpoints.
 
 import io
 import os
+import traceback
 from flask import Blueprint, request, send_file, jsonify
 
 from ..services import lsb_stego, spectrogram_stego
@@ -67,6 +68,7 @@ def decode_lsb():
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
     except Exception as e:
+        traceback.print_exc()
         return jsonify({"error": f"Decoding failed: {str(e)}"}), 500
     finally:
         cleanup_temp_dir(temp_dir)
@@ -123,6 +125,7 @@ def decode_spectrogram():
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
     except Exception as e:
+        traceback.print_exc()
         return jsonify({"error": f"Spectrogram extraction failed: {str(e)}"}), 500
     finally:
         cleanup_temp_dir(temp_dir)
